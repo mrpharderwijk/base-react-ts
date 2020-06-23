@@ -15,13 +15,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
  * Create the root reducer
  */
 const rootReducer = combineReducers<IAppState>({
-    characterState: characterReducer,
+  characterState: characterReducer,
 });
 
 /**
  * Create a configure store function of type `IAppState`
  */
 export default function configureStore(): Store<IAppState, any> {
-    const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
-    return store;
+  const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+  return store;
 }

@@ -3,22 +3,22 @@ import { CharacterActions, CharacterActionTypes } from '../../models/CharacterAc
 import { ICharacterState } from '../../models/ICharacterState';
 
 const initialCharacterState: ICharacterState = {
-    characters: [],
+  characters: [],
 };
 
 /**
  * Reducers specify how the application’s state changes in response to actions sent to the store.
  */
 export const characterReducer: Reducer<ICharacterState, CharacterActions> = (state = initialCharacterState, action) => {
-    switch (action.type) {
-        case CharacterActionTypes.GET_ALL: {
-            return {
-                ...state,
-                characters: action.characters,
-            };
-        }
-
-        default:
-            return state;
+  switch (action.type) {
+    case CharacterActionTypes.GET_ALL: {
+      return {
+        ...state,
+        characters: action.characters,
+      };
     }
+
+    default:
+      return state;
+  }
 };

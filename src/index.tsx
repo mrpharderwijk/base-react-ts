@@ -13,11 +13,11 @@ import { getAllCharacters } from './redux/actions/CharacterActions';
  * and wraps the App component with Provider, giving props to containers
  */
 const Root: React.FC<IAppProps> = (props: IAppProps) => {
-    return (
-        <Provider store={props.store}>
-            <App />
-        </Provider>
-    );
+  return (
+    <Provider store={props.store}>
+      <App />
+    </Provider>
+  );
 };
 
 /**
