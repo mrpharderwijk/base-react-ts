@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App/App';
+import App from './App/App';
 import * as serviceWorker from './serviceWorker';
-import { IAppProps } from './models/IAppProps';
+import { IAppProps } from './App/shared/models/IAppProps';
 import { Provider } from 'react-redux';
-import configureStore from './redux/store/Store';
-import { getAllCharacters } from './redux/actions/CharacterActions';
+import configureStore from './App/shared/redux/store/Store';
+import { getAllCharacters } from './App/shared/redux/actions/CharacterActions';
 
 /**
  * Create a root component that receives the store via props

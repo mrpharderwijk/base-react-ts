@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import CharacterList from '../../redux/containers/CharacterList';
+import CharacterList from './shared/redux/containers/CharacterList';
 
 const App: React.FC<Record<string, unknown>> = () => {
   return (
