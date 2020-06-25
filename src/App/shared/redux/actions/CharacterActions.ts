@@ -1,16 +1,17 @@
 import { ActionCreator, Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { SWAPI_PEOPLE } from '../../constants';
 import axios from 'axios';
-import { ICharacterGetAllAction, CharacterActionTypes } from '../../models/CharacterActions';
+import { SWAPI_PEOPLE } from '../../constants';
+import { ICharacterGetAllAction, CharacterActionTypes } from './models/ICharacterActions';
 import { ICharacterState } from '../../models/ICharacterState';
+import { FIXME } from '../../models/TFixMe';
 
 /**
  * `GET_ALL` Action
  * <Promise<Return Type>, State Interface, Type of Param, Type of Action>
  */
-export const getAllCharacters: ActionCreator<ThunkAction<
-  Promise<any>,
+const getAllCharacters: ActionCreator<ThunkAction<
+  Promise<FIXME>,
   ICharacterState,
   null,
   ICharacterGetAllAction
@@ -27,3 +28,4 @@ export const getAllCharacters: ActionCreator<ThunkAction<
     }
   };
 };
+export default getAllCharacters;

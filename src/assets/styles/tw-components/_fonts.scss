@@ -1,0 +1,71 @@
+@include font-face(
+  'Montserrat',
+  '/assets/fonts/montserrat/montserrat-thin',
+  100,
+  null,
+  eot woff ttf svg
+);
+
+@include font-face(
+  'Montserrat',
+  '/assets/fonts/montserrat/montserrat-extralight',
+  200,
+  null,
+  eot woff ttf svg
+);
+
+@include font-face(
+  'Montserrat',
+  '/assets/fonts/montserrat/montserrat-light',
+  300,
+  null,
+  eot woff ttf svg
+);
+@include font-face(
+  'Montserrat',
+  '/assets/fonts/montserrat/montserrat-regular',
+  400,
+  null,
+  eot woff ttf svg
+);
+@include font-face(
+  'Montserrat',
+  '/assets/fonts/montserrat/montserrat-medium',
+  500,
+  null,
+  eot woff ttf svg
+);
+
+@include font-face(
+  'Montserrat',
+  '/assets/fonts/montserrat/montserrat-semibold',
+  600,
+  null,
+  eot woff ttf svg
+);
+
+@include font-face(
+  'Montserrat',
+  '/assets/fonts/montserrat/montserrat-bold',
+  700,
+  null,
+  eot woff ttf svg
+);
+
+@include font-face(
+  'Montserrat',
+  '/assets/fonts/montserrat/montserrat-extrabold',
+  800,
+  null,
+  eot woff ttf svg
+);
+
+@include font-face(
+  'Montserrat',
+  '/assets/fonts/montserrat/montserrat-black',
+  900,
+  null,
+  eot woff ttf svg
+);
+
+@include font-face('Rs-icons', '/assets/fonts/icomoon/icomoon', null, null, eot woff ttf svg);
