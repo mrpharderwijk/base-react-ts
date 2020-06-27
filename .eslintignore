@@ -1,2 +1,4 @@
 node_modules
 build-tools
+tailwind.config.js
+postcss.config.js

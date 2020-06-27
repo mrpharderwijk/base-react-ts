@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+
+/**
+ * Directories are relative to index.scss
+ * PostCSS will compile tailwindc.scss to index.scss
+ *
+ * Custom (component) classes always before utilities
+ */
+@import 'styles/tw-mixins/_fonts';
+@import 'styles/tw-components/_containers';
+@import 'styles/tw-components/_buttons.scss';
+@import 'styles/tw-components/_fonts.scss';
+@import 'styles/_icons.scss';
+@import 'styles/tw-components/_titles.scss';
+
+@tailwind utilities;
