@@ -2,11 +2,15 @@ import React from 'react';
 import { ButtonProps } from './ButtonProps.model';
 import ButtonStyled from './ButtonStyled';
 import Theme from './Theme';
+import ButtonLabelStyled from './ButtonLabelStyled';
+import ButtonIconStyled from './ButtonIconStyled';
+import Icon from './Icon';
 
 const Button: React.FC<ButtonProps> = ({
   attrType = 'button',
-  children,
   className,
+  icon,
+  label,
   primary,
   secondary,
   outline,
@@ -27,7 +31,14 @@ const Button: React.FC<ButtonProps> = ({
         userAvatar={userAvatar}
         onClick={hasOnClick}
       >
-        {children}
+        {icon ? (
+          <ButtonIconStyled>
+            <Icon icon={icon} />
+          </ButtonIconStyled>
+        ) : (
+          ''
+        )}
+        {label ? <ButtonLabelStyled>{label}</ButtonLabelStyled> : ''}
       </ButtonStyled>
     </Theme>
   );

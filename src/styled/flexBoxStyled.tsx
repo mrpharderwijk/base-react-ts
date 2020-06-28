@@ -2,7 +2,6 @@
 export const flexHorizontal = `
   display: flex;
   flex-flow: row nowrap;
-  align-items: center
-  justify-content: flex-start;
+  align-items: center;
 `;
 /* eslint-enable import/prefer-default-export */

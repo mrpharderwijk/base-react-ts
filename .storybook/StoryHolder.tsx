@@ -1,8 +1,8 @@
 import React from 'react';
-import '../src/index.scss';
+import StoryHolderStyled from './StoryHolderStyled';
 
 const StoryHolder = ({ children }) => {
-  return <div className="px-20 py-10">{children}</div>;
+  return <StoryHolderStyled>{children}</StoryHolderStyled>;
 };
 
 export default StoryHolder;

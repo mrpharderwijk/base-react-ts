@@ -64,49 +64,87 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     borderRadius: ThemeSpacing;
     borderWidth: {
-      default: string;
-      '0': string;
-      '2': string;
-      '3': string;
-      '4': string;
-      '6': string;
-      '8': string;
+      default: '1px';
+      '0': '0';
+      '2': '2px';
+      '3': '3px';
+      '4': '4px';
+      '6': '6px';
+      '8': '8px';
     };
     boxShadow: {
-      default: string;
-      secondary: string;
-      xs: string;
-      sm: string;
-      smd: string;
-      md: string;
-      lg: string;
+      default: 'rgba(0, 0, 0, 0.15)';
+      secondary: 'rgba(0, 0, 0, 0.03) 0px 6px 12px, rgba(0, 0, 0, 0.18) 0px 1px 4px';
+      xs: '0px 1px 2px rgba(0, 0, 0, 0.18)';
+      sm: '0px 2px 8px rgba(0, 0, 0, 0.15)';
+      smd: '0px 2px 8px rgba(0, 0, 0, 0.12)';
+      md: '0px 2px 16px rgba(0, 0, 0, 0.12)';
+      lg: '0px 8px 28px rgba(0, 0, 0, 0.28)';
     };
     colors: {
-      'brand-primary': string;
-      'brand-primary-dark': string;
-      'brand-secondary': string;
-      'brand-secondary-dark': string;
-      'black-dark': string;
-      'gray-default': string;
-      'gray-normal': string;
-      'gray-lightest': string;
-      'gray-lighter': string;
-      'gray-light': string;
-      'gray-medium': string;
-      'gray-dark': string;
-      'gray-darker': string;
+      'brand-primary': '#ff3366';
+      'brand-primary-dark': '#d40b3d';
+      'brand-secondary': '#6bcbc3';
+      'brand-secondary-dark': '#008489';
+      'black-dark': '#222222'; // * used for: titles or main menu items
+      'gray-default': '#fafafa';
+      'gray-normal': '#f7f7f7'; // * used for: hover menu
+      'gray-lightest': '#f1f1f1'; // * used for backgrounds
+      'gray-lighter': '#dddddd'; // * used for: list anchor lines, borders
+      'gray-light': '#e4e4e4'; // A slightly darker gray for borders, lines, strokes or dividers.
+      'gray-medium': '#767676'; // A medium gray for subheadings and supporting body copy.
+      'gray-dark': '#717171'; // * used for subtitles
+      'gray-darker': '#484848'; // A darker gray for subheadings and supporting body copy.
+      white: '#ffffff';
+      black: '#000000';
     };
     fontFamily: {
-      montserrat: string;
+      montserrat: 'Montserrat';
     };
     fontSizes: {
-      small: string;
+      xs: '0.75rem';
+      sm: '0.875rem';
+      base: '1rem';
+      md: '1.125rem';
+      lg: '1.25rem';
+      xl: '1.5rem';
+      '2xl': '1.875rem';
+      '3xl': '2em';
+      '4xl': '2.25rem';
+      '5xl': '3rem';
+      '6xl': '4rem';
+    };
+    fontWeight: {
+      hairline: string;
+      thin: string;
+      light: string;
+      normal: string;
       medium: string;
-      large: string;
+      semibold: string;
+      bold: string;
+      extrabold: string;
+      black: string;
+    };
+    icons: {
+      [key: string]: string;
     };
     inset: ThemeSpacing;
     lineHeight: {
+      none: string;
+      tight: string;
+      snug: string;
+      normal: string;
+      relaxed: string;
+      loose: string;
+      '3': string;
+      '4': string;
       '4/5': string;
+      '5': string;
+      '6': string;
+      '7': string;
+      '8': string;
+      '9': string;
+      '10': string;
     };
     maxHeight: ThemeSpacing;
     maxWidth: ThemeSpacing;
@@ -114,25 +152,25 @@ declare module 'styled-components' {
     minWidth: ThemeSpacing;
     spacing: ThemeSpacing;
     screens: {
-      xxxs: string;
-      xxs: string;
-      xs: string;
-      sm: string;
-      smd: string;
-      md: string;
-      mlg: string;
-      lg: string;
-      xlg: string;
-      xl: string;
-      xxl: string;
-      xxxl: string;
-      huge: string;
+      xxxs: '400px';
+      xxs: '460px';
+      xs: '480px';
+      sm: '640px';
+      smd: '744px';
+      md: '768px';
+      mlg: '950px';
+      lg: '1024px';
+      xlg: '1128px';
+      xl: '1280px';
+      xxl: '1440px';
+      xxxl: '1600px';
+      huge: '1760px';
     };
     transitionTimingFunction: {
-      'ease-in-nav': string;
+      'ease-in-nav': 'cubic-bezier(0.35, 0, 0.65, 1) ';
     };
     zIndex: {
-      top: string;
+      top: '9999999999';
     };
   }
 }

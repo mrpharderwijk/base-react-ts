@@ -1,48 +1,4 @@
 .branding {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  padding: 0.5rem 0;
-  cursor: pointer;
-  overflow: hidden;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  &__image {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    flex: 0 1 auto;
-    z-index: 20;
-    font-size: 1.5rem;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  &__title {
-    flex: 1 1 auto;
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    opacity: 0;
-    transform: translateX(-0.3125rem);
-    transition: all 300ms ease-in-out 100ms;
-    margin-left: 0.0625rem;
-    z-index: 10;
-    white-space: nowrap;
-    /*
-    apply text-red-800;
-    apply font-montserrat;
-    */
-    @media (min-width: 768px) {
-      display: block;
-      opacity: 1;
-      transform: translateX(0rem);
-    }
-  }
 }
 
 .branding--active {

@@ -4,7 +4,7 @@ import { Router, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import CharacterListContainer from './components/CharacterListContainer';
 import MainHeaderContainer from './components/MainHeaderContainer';
-import NotFound from './fonts/NotFound/NotFound';
+import NotFound from './components/NotFound';
 import Auth from './auth/Auth';
 
 const history = createBrowserHistory();

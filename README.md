@@ -1,42 +1,25 @@
 # Base React Project
 
-This React project combines TypeScript, Redux and Redux Thunk to make a solid foundation to build upon. It has all the features needed like Prettier, TypeScript linting with ESLint etc.
+This React project combines TypeScript, Redux and Redux Thunk to make a solid foundation to build upon. It has all the features needed like Prettier, TypeScript linting with ESLint, Storybook etc.
 
-I chose ESlint above TSlint since TSlint will be deprecated in favor of ESlint (see [this](https://github.com/Microsoft/TypeScript/issues/29288#developer-productivity-tools-and-integration) and [this](https://github.com/palantir/tslint/issues/4534) for more info)
+We've chosen ESlint above TSlint since TSlint will be deprecated in favor of ESlint (see [this](https://github.com/Microsoft/TypeScript/issues/29288#developer-productivity-tools-and-integration) and [this](https://github.com/palantir/tslint/issues/4534) for more info)
 
-## Available Scripts
+## Available scripts
 
-In the project directory, you can run:
+Start the application
+`npm run start`
 
-### `yarn start`
+Start Storybook
+`npm run storybook`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Lint the TypeScript files (with ESLint)
+`npm run lint`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Lint the SCSS files (with Stylelint)
 
-### `yarn test`
+Prettify the application
+`npm run pretty`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Storybook
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The make Storybook load the fonts appropriately the custom Webpack has been altered. In `.storybook/main.js` all config can be viewed. Besides the custom Webpack config the font-face definitions can be found in the `preview-head.html`.

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 import { FIXME } from '../models/FixMe.model';
+import { themeIcons } from './ThemeIcons';
 
 const spacing = {
   '-half': '-50%',
@@ -60,7 +61,7 @@ const spacing = {
   screen: '100vw',
 };
 
-const defaultTheme: DefaultTheme = {
+export const defaultTheme: DefaultTheme = {
   borderWidth: {
     default: '1px',
     '0': '0',
@@ -70,9 +71,7 @@ const defaultTheme: DefaultTheme = {
     '6': '6px',
     '8': '8px',
   },
-  borderRadius: {
-    ...spacing,
-  },
+  borderRadius: spacing,
   boxShadow: {
     default: 'rgba(0, 0, 0, 0.15)',
     secondary: 'rgba(0, 0, 0, 0.03) 0px 6px 12px, rgba(0, 0, 0, 0.18) 0px 1px 4px',
@@ -96,18 +95,54 @@ const defaultTheme: DefaultTheme = {
     'gray-medium': '#767676', // A medium gray for subheadings and supporting body copy.
     'gray-dark': '#717171', // * used for subtitles
     'gray-darker': '#484848', // A darker gray for subheadings and supporting body copy.
+    white: '#ffffff',
+    black: '#000000',
   },
   fontFamily: {
     montserrat: 'Montserrat',
   },
   fontSizes: {
-    small: '1em',
-    medium: '2em',
-    large: '3em',
+    xs: '0.75rem',
+    sm: '0.875rem',
+    base: '1rem',
+    md: '1.125rem',
+    lg: '1.25rem',
+    xl: '1.5rem',
+    '2xl': '1.875rem',
+    '3xl': '2em',
+    '4xl': '2.25rem',
+    '5xl': '3rem',
+    '6xl': '4rem',
   },
+  fontWeight: {
+    hairline: '100',
+    thin: '200',
+    light: '300',
+    normal: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+    extrabold: '800',
+    black: '900',
+  },
+  icons: themeIcons,
   inset: spacing,
   lineHeight: {
+    none: '1',
+    tight: '1.25',
+    snug: '1.375',
+    normal: '1.5',
+    relaxed: '1.625',
+    loose: '2',
+    '3': '.75rem',
+    '4': '1rem',
     '4/5': '1.125rem',
+    '5': '1.25rem',
+    '6': '1.5rem',
+    '7': '1.75rem',
+    '8': '2rem',
+    '9': '2.25rem',
+    '10': '2.5rem',
   },
   maxHeight: spacing,
   maxWidth: spacing,

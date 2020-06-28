@@ -11,8 +11,7 @@ const MainUserMenu: React.FC<MainUserMenuProps> = ({ isLoggedIn, user }: MainUse
     <div className="main-user-menu relative">
       {isLoggedIn ? (
         <>
-          <Button secondary onClick={() => toggleSubMenu()}>
-            <span className="btn__label md:text-brand-primary">{user?.name?.firstName || 'Anonymous'}</span>
+          <Button secondary label={user?.name?.firstName || 'Anonymous'} onClick={() => toggleSubMenu()}>
             <span>avatar</span>
           </Button>
           {isSubMenuActive ? (
