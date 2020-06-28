@@ -11,12 +11,16 @@ export default {
   },
 };
 
-export const primaryDefault = () => <Button primary label="label" onClick={action('clicked')}></Button>;
-export const primaryWithIcon = () => <Button primary icon="search" label="label" onClick={action('clicked')}></Button>;
+export const primaryDefault = () => <Button primary label="label" />;
+export const primaryWithIcon = () => <Button primary icon="search" label="label" />;
 
-export const secondaryDefault = () => <Button secondary label="label" onClick={action('clicked')}></Button>;
-export const secondaryWithIcon = () => (
-  <Button secondary icon="search" label="label" onClick={action('clicked')}></Button>
-);
+export const secondaryDefault = () => <Button secondary label="label" />;
+export const secondaryWithIcon = () => <Button secondary icon="search" label="label" />;
 
-export const iconText = () => <Button icon="😀" label="label" onClick={action('clicked')}></Button>;
+export const outlineDefault = () => <Button outline label="label" />;
+export const outlineWithIcon = () => <Button outline icon="search" label="label" />;
+
+export const userButton = () => <Button user label="Sign in" />;
+export const userAvatarButton = () => <Button userAvatar label="Mr. Anonymous" />;
+
+export const none = () => <Button label="label" />;

@@ -1,13 +1,25 @@
 import styled from 'styled-components';
+import { ButtonIconStyledProps } from './ButtonIconStyledProps';
 
-const ButtonIconStyled = styled.span`
+const ButtonIconStyled = styled.span<ButtonIconStyledProps>`
   white-space: nowrap;
 
-  ${({ theme }) => `
+  ${({ primary, secondary, theme }) =>
+    primary || secondary
+      ? `
     color: ${theme.colors.white};
     font-size: ${theme.fontSizes.sm};
-    font-weight: ${theme.fontWeight.medium};
     line-height: ${theme.lineHeight[5]};
+    text-decoration: none;
+  `
+      : ''}
+
+  ${({ outline, theme }) =>
+    outline &&
+    `
+    color: ${theme.colors['black-dark']};
+    font-size: ${theme.fontSizes.sm};
+    text-decoration: none;
   `}
 `;
 

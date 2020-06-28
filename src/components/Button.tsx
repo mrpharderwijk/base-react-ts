@@ -5,10 +5,10 @@ import Theme from './Theme';
 import ButtonLabelStyled from './ButtonLabelStyled';
 import ButtonIconStyled from './ButtonIconStyled';
 import Icon from './Icon';
+import Avatar from './Avatar';
 
 const Button: React.FC<ButtonProps> = ({
   attrType = 'button',
-  className,
   icon,
   label,
   primary,
@@ -19,10 +19,10 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
 }: ButtonProps) => {
   const hasOnClick = () => (onClick ? onClick() : null);
+
   return (
     <Theme>
       <ButtonStyled
-        className={className}
         type={attrType}
         primary={primary}
         secondary={secondary}
@@ -31,14 +31,28 @@ const Button: React.FC<ButtonProps> = ({
         userAvatar={userAvatar}
         onClick={hasOnClick}
       >
-        {icon ? (
-          <ButtonIconStyled>
+        {icon && !userAvatar ? (
+          <ButtonIconStyled primary={primary} secondary={secondary} outline={outline} user={user}>
             <Icon icon={icon} />
           </ButtonIconStyled>
         ) : (
           ''
         )}
-        {label ? <ButtonLabelStyled>{label}</ButtonLabelStyled> : ''}
+        {label ? (
+          <ButtonLabelStyled
+            primary={primary}
+            secondary={secondary}
+            outline={outline}
+            user={user}
+            userAvatar={userAvatar}
+          >
+            {label}
+          </ButtonLabelStyled>
+        ) : (
+          ''
+        )}
+
+        {userAvatar ? <Avatar imgSrc={undefined} width={30} height={30} /> : ''}
       </ButtonStyled>
     </Theme>
   );

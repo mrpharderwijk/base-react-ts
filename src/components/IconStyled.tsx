@@ -3023,7 +3023,7 @@ const IconStyled = styled.span<{ icon: string }>`
   font-family: 'RsIcons' !important;
   speak: none;
   font-style: normal;
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-weight: ${({ theme }) => theme.fontWeight.black};
   font-variant: normal;
   text-transform: none;
   line-height: 1;
