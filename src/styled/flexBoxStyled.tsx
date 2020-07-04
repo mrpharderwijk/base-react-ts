@@ -4,4 +4,10 @@ export const flexHorizontal = `
   flex-flow: row nowrap;
   align-items: center;
 `;
+
+export const flexVertical = `
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+`;
 /* eslint-enable import/prefer-default-export */

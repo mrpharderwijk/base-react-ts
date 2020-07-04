@@ -1,29 +1,33 @@
 import styled from 'styled-components';
-import { ButtonLabelStyledProps } from './ButtonLabelStyledProps';
+import { ButtonPropsInterface } from './ButtonPropsInterface';
 
-const ButtonLabelStyled = styled.span<ButtonLabelStyledProps>`
+const ButtonLabelStyled = styled.span<ButtonPropsInterface>`
+  font-family: inherit;
   white-space: nowrap;
+  text-decoration: none;
 
-  ${({ theme }) => `
-    font-size: ${theme.fontSizes.sm};
-    line-height: ${theme.lineHeight[5]};
-  `}
+  ${({ color, labelWeight, stroked, theme }) => {
+    const fontSize = theme.fontSizes.sm;
+    const lineHeight = theme.lineHeight[5];
+    let fontWeight = labelWeight ? theme.fontWeight[labelWeight] : 'inherit';
+    const textColor = 'inherit';
 
-  ${({ primary, secondary, theme }) =>
-    (primary || secondary) &&
-    `
-    color: ${theme.colors.white};
-    font-weight: ${theme.fontWeight.medium};
-    text-decoration: none;
-  `}
+    if (color === 'primary' || color === 'secondary' || color === 'warn') {
+      fontWeight = !fontWeight ? theme.fontWeight.medium : fontWeight;
+    }
 
-  ${({ outline, user, userAvatar, theme }) =>
-    (outline || user || userAvatar) &&
-    `
-    color: ${theme.colors['black-dark']};
-    font-weight: ${theme.fontWeight.semibold};
-    text-decoration: none;
-  `}
+    if (stroked) {
+      // textColor = theme.colors['black-dark'];
+      fontWeight = theme.fontWeight.semibold;
+    }
+
+    return `
+      color: ${textColor};
+      font-size: ${fontSize};
+      font-weight: ${fontWeight};
+      line-height: ${lineHeight};
+    `;
+  }};
 `;
 
 export default ButtonLabelStyled;

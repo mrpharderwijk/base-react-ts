@@ -1,27 +1,48 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import { MainNavigationProps } from './MainNavigation.model';
-import './MainNavigation.scss';
+import styled from 'styled-components';
+import { MainNavigationPropsInterface } from './MainNavigationPropsInterface';
+import List from './List';
+import ListItem from './ListItem';
+import MainNavigationLinkLabel from './MainNavigationLinkLabel';
+import Theme from './Theme';
+import MainNavigationLinkStyled from './MainNavigationLinkStyled';
 
-const MainNavigation: React.FC<MainNavigationProps> = ({ navItems }: MainNavigationProps) => (
-  <nav className="opacity-0 transition-opacity duration-300 ease-in-out w-full md:flex md:flex-row md:flex-wrap md:items-center md:justify-end md:opacity-100">
-    {navItems && navItems.length ? (
-      <ul className="flex flex-row flex-no-wrap justify-start items-center">
-        {navItems.map((navItem) => (
-          <li className="flex-auto w-full list-group__item md:flex-auto" key={navItem.id}>
-            <Link
-              className="main-navigation-list__anchor appearance-none bg-transparent border-0 text-black-dark cursor-pointer block leading-5 m-0 outline-none overflow-visible p-12 text-center no-underline select-auto relative z-10 hover:no-underline md:block md:font-normal"
-              to={navItem.href}
-            >
-              <span className="flex font-semibold text-sm items-center h-full relative z-10">{navItem.label}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      ''
-    )}
-  </nav>
+const MainNavigationStyled = styled.nav<MainNavigationPropsInterface>`
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  width: 100%;
+
+  @media (min-width: ${({ theme }) => theme.screens.md}) {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: ${({ alignRight }) => (alignRight ? `flex-end` : `flex-start`)};
+    opacity: 1;
+  }
+`;
+
+const MainNavigation: React.FC<MainNavigationPropsInterface> = ({
+  alignLeft,
+  alignRight,
+  navItems,
+}: MainNavigationPropsInterface) => (
+  <Theme>
+    <MainNavigationStyled alignLeft={alignLeft} alignRight={alignRight}>
+      {navItems && navItems.length ? (
+        <List horizontal>
+          {navItems.map((navItem) => (
+            <ListItem key={navItem.id}>
+              <MainNavigationLinkStyled to={navItem.href}>
+                <MainNavigationLinkLabel>{navItem.label}</MainNavigationLinkLabel>
+              </MainNavigationLinkStyled>
+            </ListItem>
+          ))}
+        </List>
+      ) : (
+        ''
+      )}
+    </MainNavigationStyled>
+  </Theme>
 );
 
 export default MainNavigation;

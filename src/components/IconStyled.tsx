@@ -1,5 +1,6 @@
 import styled, { DefaultTheme } from 'styled-components';
 import { ThemeIconsEnum } from './ThemeIconsEnum';
+import { IconPropsInterface } from './IconPropsInterface';
 
 const getIconContent = (icon: string, theme: DefaultTheme): string => {
   let iconContent = '';
@@ -3018,8 +3019,9 @@ const getIconContent = (icon: string, theme: DefaultTheme): string => {
   return `\\${iconContent}`;
 };
 
-const IconStyled = styled.span<{ icon: string }>`
+const IconStyled = styled.span<IconPropsInterface>`
   /* use !important to prevent issues with browser extensions that change/fonts */
+  display: block;
   font-family: 'RsIcons' !important;
   speak: none;
   font-style: normal;
@@ -3032,9 +3034,13 @@ const IconStyled = styled.span<{ icon: string }>`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  &::before {
-    content: ${({ icon, theme }) => `"${getIconContent(icon, theme).toString()}"`};
-  }
+  ${({ icon, theme }) =>
+    icon &&
+    `
+    &::before {
+      content:  ${getIconContent(icon, theme).toString()};
+    }
+  `};
 `;
 
 export default IconStyled;

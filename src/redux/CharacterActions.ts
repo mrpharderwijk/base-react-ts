@@ -3,13 +3,14 @@ import { ThunkAction } from 'redux-thunk';
 import { createAction } from 'redux-actions';
 import axios from 'axios';
 import { SWAPI_PEOPLE } from '../constants';
-import { CharacterActionTypes, CharacterActions } from './CharacterActions.model';
-import { CharacterStateTypes } from './CharacterState.model';
+import { CharacterStateInterface } from './CharacterStateInterface';
 import { FIXME } from '../models/FixMe.model';
+import { CharacterActionsEnum } from './CharacterActionsEnum';
+import { CharacterActionsType } from './CharacterActionsType';
 
-export const requestCharacters = createAction(CharacterActionTypes.REQUEST_CHARACTERS);
-export const receiveCharacters = createAction(CharacterActionTypes.RECEIVE_CHARACTERS);
-export const receiveCharactersErrors = createAction(CharacterActionTypes.RECEIVE_CHARACTERS_ERRORS);
+export const requestCharacters = createAction(CharacterActionsEnum.REQUEST_CHARACTERS);
+export const receiveCharacters = createAction(CharacterActionsEnum.RECEIVE_CHARACTERS);
+export const receiveCharactersErrors = createAction(CharacterActionsEnum.RECEIVE_CHARACTERS_ERRORS);
 
 /**
  * `GET_ALL` Action
@@ -17,9 +18,9 @@ export const receiveCharactersErrors = createAction(CharacterActionTypes.RECEIVE
  */
 export const getAllCharacters: ActionCreator<ThunkAction<
   Promise<FIXME>,
-  CharacterStateTypes,
+  CharacterStateInterface,
   null,
-  CharacterActions
+  CharacterActionsType
 >> = () => async (dispatch: Dispatch) => {
   try {
     dispatch(requestCharacters());

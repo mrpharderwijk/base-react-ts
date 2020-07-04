@@ -1,11 +1,14 @@
 import * as React from 'react';
-import { Character } from '../models/Character.model';
-import { CharacterListProps } from './CharacterList.model';
+import { CharacterInterface } from '../models/CharacterInterface';
+import { CharacterListPropsInterface } from './CharacterListInterface';
 
-const CharacterList: React.FC<CharacterListProps> = ({ characters, toggleActive }: CharacterListProps) => (
+const CharacterList: React.FC<CharacterListPropsInterface> = ({
+  characters,
+  toggleActive,
+}: CharacterListPropsInterface) => (
   <ul className="name-container">
     {characters &&
-      characters.map((character: Character) => {
+      characters.map((character: CharacterInterface) => {
         return (
           <li key={character.name}>
             <button type="button" onClick={() => toggleActive(character.name)}>

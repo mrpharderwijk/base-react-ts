@@ -1,37 +1,45 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import MainHeader from './MainHeader';
+import { AppStateInterface } from '../AppStateInterface';
+import { FIXME } from '../models/FixMe.model';
+import { getAllNavigationItems } from '../redux/UiActions';
+import { MainHeaderContainerPropsInterface } from './MainHeaderContainerPropsInterface';
+import { getLoggedInState } from '../redux/AuthActions';
 
-class MainHeaderContainer extends React.Component<{ fixedAfter?: number }, { isFixed: boolean }> {
-  constructor(props: { fixedAfter?: number }) {
-    super(props);
-
-    const { fixedAfter } = this.props;
-
-    this.state = { isFixed: window.pageYOffset >= (fixedAfter || 0) };
+class MainHeaderContainer extends React.Component<MainHeaderContainerPropsInterface> {
+  componentDidMount() {
+    const { getLoggedInStateConnect, getNavigationItems } = this.props;
+    getNavigationItems();
+    getLoggedInStateConnect();
   }
 
-  componentDidMount(): void {
-    window.addEventListener('scroll', this.listenToScroll);
-  }
-
-  componentWillUnmount(): void {
-    window.removeEventListener('scroll', this.listenToScroll);
-  }
-
-  /**
-   * Update state when scrolling
-   */
-  listenToScroll = (): void => {
-    const { fixedAfter } = this.props;
-    this.setState({
-      isFixed: window.pageYOffset >= (fixedAfter || 0),
-    });
-  };
-
-  public render(): React.ReactElement {
-    const { isFixed } = this.state;
-    return <MainHeader isFixed={isFixed} />;
+  public render() {
+    const { navItems, isLoggedIn } = this.props;
+    return <MainHeader fixedAfter={1} isLoggedIn={isLoggedIn} navItems={navItems} />;
   }
 }
 
-export default MainHeaderContainer;
+/**
+ * Grab the characters from the store and make them availabel on props
+ */
+const mapStateToProps = (store: AppStateInterface) => {
+  return {
+    isLoggedIn: store.authState.isLoggedIn,
+    navItems: store.uiState.navItems,
+  };
+};
+
+/**
+ * Sets dispatcher
+ * FIXME: dispatch type was ThunkDispatch<IAppState, FIXME, AnyAction>
+ */
+const mapDispatchToProps = (dispatch: FIXME) => {
+  return {
+    getLoggedInStateConnect: () => dispatch(getLoggedInState()),
+    getNavigationItems: () => dispatch(getAllNavigationItems(dispatch)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainHeaderContainer);
+/* eslint-enable */

@@ -1,10 +1,10 @@
 import { handleActions } from 'redux-actions';
-import { CharacterActionTypes } from './CharacterActions.model';
-import { CharacterStateTypes } from './CharacterState.model';
+import { CharacterActionsEnum } from './CharacterActionsEnum';
+import { CharacterStateInterface } from './CharacterStateInterface';
 import initialBaseState from './initialBaseState';
 import { FIXME } from '../models/FixMe.model';
 
-const initialCharacterState: CharacterStateTypes = {
+const initialCharacterState: CharacterStateInterface = {
   ...initialBaseState,
   characters: null,
 };
@@ -14,16 +14,16 @@ const initialCharacterState: CharacterStateTypes = {
  */
 export default handleActions(
   {
-    [CharacterActionTypes.REQUEST_CHARACTERS]: (state): CharacterStateTypes => ({
+    [CharacterActionsEnum.REQUEST_CHARACTERS]: (state): CharacterStateInterface => ({
       ...state,
       isFetching: true,
     }),
-    [CharacterActionTypes.RECEIVE_CHARACTERS]: (state, { payload }): CharacterStateTypes => ({
+    [CharacterActionsEnum.RECEIVE_CHARACTERS]: (state, { payload }): CharacterStateInterface => ({
       ...state,
       isFetching: false,
       characters: payload.characters,
     }),
-    [CharacterActionTypes.RECEIVE_CHARACTERS_ERRORS]: (state, { payload }): FIXME => ({
+    [CharacterActionsEnum.RECEIVE_CHARACTERS_ERRORS]: (state, { payload }): FIXME => ({
       ...state,
       isFetching: false,
       error: payload,

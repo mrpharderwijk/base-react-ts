@@ -7,18 +7,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './redux/Store';
 import { getAllCharacters } from './redux/CharacterActions';
-import { AppProps } from './App.model';
-
-/**
- * FIXME: find a better spot for this (adding body classes)
- */
-document.body.className += 'overflow-x-hidden p-0';
+import { AppPropsInterface } from './AppPropsInterface';
 
 /**
  * Create a root component that receives the store via props
  * and wraps the App component with Provider, giving props to containers
  */
-const Root: React.FC<AppProps> = (props: AppProps) => {
+const Root: React.FC<AppPropsInterface> = (props: AppPropsInterface) => {
   const { store } = props;
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonProps } from './ButtonProps.model';
+import { ButtonPropsInterface } from './ButtonPropsInterface';
 import ButtonStyled from './ButtonStyled';
 import Theme from './Theme';
 import ButtonLabelStyled from './ButtonLabelStyled';
@@ -7,44 +7,72 @@ import ButtonIconStyled from './ButtonIconStyled';
 import Icon from './Icon';
 import Avatar from './Avatar';
 
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonPropsInterface> = ({
   attrType = 'button',
+  avatar,
+  avatarLeft,
+  avatarRight,
+  children,
+  color,
+  disabled,
+  flat,
   icon,
+  iconAlign = 'left',
   label,
-  primary,
-  secondary,
-  outline,
-  user,
-  userAvatar,
+  labelWeight,
   onClick,
-}: ButtonProps) => {
+  pill,
+  raised,
+  size,
+  stroked,
+  subMenu,
+}: ButtonPropsInterface) => {
   const hasOnClick = () => (onClick ? onClick() : null);
 
   return (
     <Theme>
       <ButtonStyled
-        type={attrType}
-        primary={primary}
-        secondary={secondary}
-        outline={outline}
-        user={user}
-        userAvatar={userAvatar}
+        avatar={avatar}
+        avatarLeft={avatarLeft}
+        avatarRight={avatarRight}
+        color={color}
+        stroked={stroked}
+        flat={flat}
+        icon={icon}
+        iconAlign={iconAlign}
+        disabled={disabled}
         onClick={hasOnClick}
+        pill={pill}
+        raised={raised}
+        subMenu={subMenu}
+        size={size}
+        type={attrType}
       >
-        {icon && !userAvatar ? (
-          <ButtonIconStyled primary={primary} secondary={secondary} outline={outline} user={user}>
+        {icon && (!iconAlign || iconAlign === 'left') ? (
+          <ButtonIconStyled
+            color={color}
+            raised={raised}
+            stroked={stroked}
+            flat={flat}
+            icon={icon}
+            iconAlign={iconAlign}
+            subMenu={subMenu}
+          >
             <Icon icon={icon} />
           </ButtonIconStyled>
         ) : (
           ''
         )}
+        {avatar && avatarLeft ? <Avatar imgSrc={avatar} width={30} height={30} /> : ''}
         {label ? (
           <ButtonLabelStyled
-            primary={primary}
-            secondary={secondary}
-            outline={outline}
-            user={user}
-            userAvatar={userAvatar}
+            color={color}
+            flat={flat}
+            iconAlign={iconAlign}
+            labelWeight={labelWeight}
+            raised={raised}
+            stroked={stroked}
+            subMenu={subMenu}
           >
             {label}
           </ButtonLabelStyled>
@@ -52,7 +80,9 @@ const Button: React.FC<ButtonProps> = ({
           ''
         )}
 
-        {userAvatar ? <Avatar imgSrc={undefined} width={30} height={30} /> : ''}
+        {avatar && !avatarLeft ? <Avatar imgSrc={avatar} width={30} height={30} /> : ''}
+        {icon && iconAlign === 'right' ? <Icon icon={icon} width={30} height={30} /> : ''}
+        {children}
       </ButtonStyled>
     </Theme>
   );

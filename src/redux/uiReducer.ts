@@ -1,21 +1,21 @@
 import { handleActions } from 'redux-actions';
-import { UiStateTypes } from './UiState.model';
+import { UiStateInterface } from './UiStateInterface';
 import initialBaseState from './initialBaseState';
-import { UiActionTypes } from './UiActions.model';
+import { UiActionsEnum } from './UiActionsEnum';
 import { FIXME } from '../models/FixMe.model';
 
-const initialUiState: UiStateTypes = {
+const initialUiState: UiStateInterface = {
   ...initialBaseState,
   navItems: null,
 };
 
-export default handleActions<UiStateTypes, FIXME>(
+export default handleActions<UiStateInterface, FIXME>(
   {
-    [UiActionTypes.REQUEST_NAVIGATION_ITEMS]: (state): UiStateTypes => ({
+    [UiActionsEnum.REQUEST_NAVIGATION_ITEMS]: (state): UiStateInterface => ({
       ...state,
       isFetching: true,
     }),
-    [UiActionTypes.RECEIVE_NAVIGATION_ITEMS]: (state, { payload }: FIXME): UiStateTypes => ({
+    [UiActionsEnum.RECEIVE_NAVIGATION_ITEMS]: (state, { payload }: FIXME): UiStateInterface => ({
       ...state,
       isFetching: false,
       navItems: payload,

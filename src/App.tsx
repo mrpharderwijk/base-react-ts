@@ -1,38 +1,31 @@
 import React from 'react';
 import './App.scss';
-import { Router, Switch, Route } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-import CharacterListContainer from './components/CharacterListContainer';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainHeaderContainer from './components/MainHeaderContainer';
-import NotFound from './components/NotFound';
-import Auth from './auth/Auth';
-
-const history = createBrowserHistory();
+import Auth from './routes/Auth';
+import NotFound from './routes/NotFound';
+import Home from './routes/Home';
+import Contact from './routes/Contact';
+import About from './routes/About';
 
 const App: React.FC<Record<string, unknown>> = () => {
   return (
-    <Router history={history}>
-      <MainHeaderContainer fixedAfter={1} />
+    <Router>
+      <MainHeaderContainer />
+
       <main className="pt-80" role="main">
         {/*
-          A <Switch> looks through all its children <Route>
+          A <Switch /> looks through all its children <Route />
           elements and renders the first one whose path
           matches the current URL. Use a <Switch> any time
           you have multiple routes, but you want only one
           of them to render at a time
         */}
         <Switch>
-          <Route exact path="/">
-            <h1 className="text-2xl">The Force Awakens</h1>
-            <CharacterListContainer />
-          </Route>
-          <Route path="/about">
-            <h1 className="text-2xl">About</h1>
-          </Route>
-          <Route path="/contact">
-            <h1 className="text-2xl">contact</h1>
-          </Route>
-          <Route path="/auth" component={Auth} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/auth" component={Auth} />
           <Route component={NotFound} />
         </Switch>
       </main>

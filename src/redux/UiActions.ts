@@ -2,20 +2,21 @@
 import { Dispatch, ActionCreator } from 'redux';
 import { createAction } from 'redux-actions';
 import { ThunkAction } from 'redux-thunk';
-import { UiActionTypes, UiActions } from './UiActions.model';
 import { FAKE_RESPONSE_NAV_ITEMS } from '../mocks/navItems.mocks';
 import { FIXME } from '../models/FixMe.model';
-import { MainNavItem } from '../components/MainNavItem.model';
-import { UiStateTypes } from './UiState.model';
+import { MainNavItemInterface } from '../components/MainNavItemInterface';
+import { UiStateInterface } from './UiStateInterface';
+import { UiActionsEnum } from './UiActionsEnum';
+import { UiActionsType } from './UiActionsType';
 
-export const requestNavigationItems = createAction(UiActionTypes.REQUEST_NAVIGATION_ITEMS);
-export const receiveNavigationItems = createAction<MainNavItem[]>(UiActionTypes.RECEIVE_NAVIGATION_ITEMS);
+export const requestNavigationItems = createAction(UiActionsEnum.REQUEST_NAVIGATION_ITEMS);
+export const receiveNavigationItems = createAction<MainNavItemInterface[]>(UiActionsEnum.RECEIVE_NAVIGATION_ITEMS);
 
 export const getAllNavigationItems: ActionCreator<ThunkAction<
   Promise<FIXME>,
-  UiStateTypes,
+  UiStateInterface,
   null,
-  UiActions
+  UiActionsType
 >> = () => async (dispatch: Dispatch) => {
   try {
     dispatch(requestNavigationItems());

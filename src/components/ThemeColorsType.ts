@@ -1,0 +1,16 @@
+export type ThemeColorsType =
+  | 'brand-primary'
+  | 'brand-primary-dark'
+  | 'brand-secondary'
+  | 'brand-secondary-dark'
+  | 'black-dark'
+  | 'gray-default'
+  | 'gray-normal'
+  | 'gray-lightest'
+  | 'gray-lighter'
+  | 'gray-light'
+  | 'gray-medium'
+  | 'gray-dark'
+  | 'gray-darker'
+  | 'white'
+  | 'black';

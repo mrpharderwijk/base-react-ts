@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import { ActionCreator, Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { AuthActionTypes } from './AuthActions.model';
+import { AuthActionsEnum } from './AuthActionsEnum';
 import { FIXME } from '../models/FixMe.model';
 
 export const getLoggedInState: ActionCreator<ThunkAction<FIXME, FIXME, FIXME, FIXME>> = () => {
@@ -20,7 +20,7 @@ export const getLoggedInState: ActionCreator<ThunkAction<FIXME, FIXME, FIXME, FI
         isLoggedIn: response.data.results.isLoggedIn,
         expiry: response.data.results.expiry,
         accessToken: response.data.results.accessToken,
-        type: AuthActionTypes.FETCH_LOGGED_IN,
+        type: AuthActionsEnum.FETCH_LOGGED_IN,
       });
     } catch (err) {
       console.error(err);

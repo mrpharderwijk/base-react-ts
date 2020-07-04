@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import * as React from 'react';
-import { AppState } from '../AppState.model';
+import { AppStateInterface } from '../AppStateInterface';
 import CharacterList from './CharacterList';
-import { CharacterListContainerProps } from './CharacterListContainer.model';
+import { CharacterListContainerPropsInterface } from './CharacterListContainerPropsInterface';
 
-class CharacterListContainer extends React.Component<CharacterListContainerProps> {
+class CharacterListContainer extends React.Component<CharacterListContainerPropsInterface> {
   toggleActive = (characterName: string): void => {
     // We should change state in container components :)
     console.log(characterName);
@@ -20,7 +20,7 @@ class CharacterListContainer extends React.Component<CharacterListContainerProps
 /**
  * Grab the characters from the store and make them availabel on props
  */
-const mapStateToProps = (store: AppState) => {
+const mapStateToProps = (store: AppStateInterface) => {
   return {
     characters: store.characterState.characters,
   };

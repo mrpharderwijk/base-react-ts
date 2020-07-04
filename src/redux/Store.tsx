@@ -9,7 +9,7 @@ import { combineReducers, createStore, applyMiddleware, Store } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import characterReducer from './characterReducer';
-import { AppState } from '../AppState.model';
+import { AppStateInterface } from '../AppStateInterface';
 import uiReducer from './uiReducer';
 import { FIXME } from '../models/FixMe.model';
 import authReducer from './authReducer';
@@ -17,16 +17,16 @@ import authReducer from './authReducer';
 /**
  * Create the root reducer
  */
-const rootReducer = combineReducers<AppState>({
+const rootReducer = combineReducers<AppStateInterface>({
   characterState: characterReducer,
   uiState: uiReducer,
   authState: authReducer,
 });
 
 /**
- * Create a configure store function of type `AppState`
+ * Create a configure store function of type `AppStateInterface`
  */
-export default function configureStore(): Store<AppState, FIXME> {
+export default function configureStore(): Store<AppStateInterface, FIXME> {
   const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
   return store;
 }

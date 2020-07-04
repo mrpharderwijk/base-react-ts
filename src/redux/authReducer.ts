@@ -1,6 +1,6 @@
 import { Reducer } from 'react';
 import { FIXME } from '../models/FixMe.model';
-import { AuthActionTypes } from './AuthActions.model';
+import { AuthActionsEnum } from './AuthActionsEnum';
 import initialBaseState from './initialBaseState';
 
 const initialAuthState: FIXME = {
@@ -12,7 +12,7 @@ const initialAuthState: FIXME = {
 
 const authReducer: Reducer<FIXME, FIXME> = (state = initialAuthState, action) => {
   switch (action.type) {
-    case AuthActionTypes.FETCH_LOGGED_IN: {
+    case AuthActionsEnum.FETCH_LOGGED_IN: {
       return {
         ...state,
         isLoggedIn: action.isLoggedIn,
