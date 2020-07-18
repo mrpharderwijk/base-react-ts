@@ -1,9 +1,9 @@
 export interface ThemeColorsInterface {
   // [key: string]: string;
-  'brand-primary': string;
-  'brand-primary-dark': string;
-  'brand-secondary': string;
-  'brand-secondary-dark': string;
+  primary: string;
+  'primary-dark': string;
+  secondary: string;
+  'secondary-dark': string;
   'black-dark': string;
   'gray-default': string;
   'gray-normal': string;

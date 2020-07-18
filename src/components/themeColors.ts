@@ -2,10 +2,10 @@ import { ThemeColorsInterface } from './ThemeColorsInterface';
 
 /* eslint-disable import/prefer-default-export */
 export const themeColors: ThemeColorsInterface = {
-  'brand-primary': '#ff3366',
-  'brand-primary-dark': '#d40b3d',
-  'brand-secondary': '#6bcbc3',
-  'brand-secondary-dark': '#008489',
+  primary: '#ff3366',
+  'primary-dark': '#d40b3d',
+  secondary: '#6bcbc3',
+  'secondary-dark': '#008489',
   'black-dark': '#222222', // * used for: titles or main menu items
   'gray-default': '#fafafa',
   'gray-normal': '#f7f7f7', // * used for: hover menu

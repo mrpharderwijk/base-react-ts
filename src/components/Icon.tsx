@@ -3,9 +3,9 @@ import IconStyled from './IconStyled';
 import Theme from './Theme';
 import { IconPropsInterface } from './IconPropsInterface';
 
-const Icon: React.FC<IconPropsInterface> = ({ icon }: IconPropsInterface) => (
+const Icon: React.FC<IconPropsInterface> = ({ color, icon }: IconPropsInterface) => (
   <Theme>
-    <IconStyled icon={icon} />
+    <IconStyled color={color} icon={icon} />
   </Theme>
 );
 

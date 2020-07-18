@@ -3016,7 +3016,7 @@ const getIconContent = (icon: string, theme: DefaultTheme): string => {
       iconContent = theme.icons.home;
   }
 
-  return `\\${iconContent}`;
+  return `"\\${iconContent}"`;
 };
 
 const IconStyled = styled.span<IconPropsInterface>`
@@ -3025,7 +3025,6 @@ const IconStyled = styled.span<IconPropsInterface>`
   font-family: 'RsIcons' !important;
   speak: none;
   font-style: normal;
-  font-weight: ${({ theme }) => theme.fontWeight.black};
   font-variant: normal;
   text-transform: none;
   line-height: 1;
@@ -3034,10 +3033,13 @@ const IconStyled = styled.span<IconPropsInterface>`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  ${({ icon, theme }) =>
+  ${({ color, icon, theme }) =>
     icon &&
     `
+    color: ${color ? theme.colors[color] : theme.colors['black-dark']};
+    font-weight: ${theme.fontWeight.black};
     &::before {
+      color: inherit;
       content:  ${getIconContent(icon, theme).toString()};
     }
   `};

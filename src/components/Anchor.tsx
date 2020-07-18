@@ -9,11 +9,11 @@ const AnchorStyled = styled.a`
 
     switch (color) {
       case 'primary':
-        textColor = theme.colors['brand-primary'];
+        textColor = theme.colors.primary;
         break;
 
       case 'secondary':
-        textColor = theme.colors['brand-secondary-dark'];
+        textColor = theme.colors['secondary-dark'];
         break;
 
       case 'warn':

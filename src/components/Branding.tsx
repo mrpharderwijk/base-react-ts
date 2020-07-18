@@ -32,7 +32,7 @@ const BrandingImageStyled = styled.img<BrandingImageStyledInterface>`
 `;
 
 const BrandingLabelWrapperStyled = styled.div<{ isActive?: boolean }>`
-  color: ${({ theme }) => theme.colors['brand-primary']};
+  color: ${({ theme }) => theme.colors.primary};
   flex: 1 1 auto;
   font-family: ${({ theme }) => theme.fontFamily.montserrat};
   font-size: ${({ theme }) => theme.fontSizes.lg};

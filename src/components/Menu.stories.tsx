@@ -51,21 +51,22 @@ export const menu = () =>
           flat={menuVariant?.flat}
           stroked={menuVariant?.stroked}
           key="trigger"
-          label={menuVariant.label}
-        />
+        >
+          {menuVariant.label}
+        </Button>
         <List vertical key="submenu">
           <ListItem>
-            <Button label={menuVariant.label} />
+            <Button>{menuVariant.label}</Button>
           </ListItem>
           <ListItem>
-            <Button label={menuVariant.label} />
+            <Button>{menuVariant.label}</Button>
           </ListItem>
           <ListItemSeparator />
           <ListItem>
-            <Button label={menuVariant.label} labelWeight="normal" />
+            <Button>{menuVariant.label}</Button>
           </ListItem>
           <ListItem>
-            <Button label={menuVariant.label} labelWeight="light" />
+            <Button>{menuVariant.label}</Button>
           </ListItem>
         </List>
       </Menu>

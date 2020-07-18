@@ -31,7 +31,7 @@ const navItems = [
 
 export const mainHeaderPrimary = () => (
   <BrowserRouter>
-    <MainHeader themeBgColor="brand-primary" />
+    <MainHeader themeBgColor="primary" />
   </BrowserRouter>
 );
 

@@ -3,15 +3,59 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import Button from './Button';
 import { ButtonColorsType } from './ButtonColorsType';
+import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
 import { ButtonSizeType } from './ButtonSizeType';
-import { AvatarPropsInterface } from './AvatarPropsInterface';
+import Icon from './Icon';
+import Avatar from './Avatar';
 
 export default {
   component: Button,
   title: 'Button',
+  decorators: [withKnobs],
   parameters: {
     info: Button,
   },
+};
+
+export const buttonWithKnobs = () => {
+  const buttonColors = {
+    primary: 'primary',
+    secondary: 'secondary',
+    warn: 'warn',
+    link: 'link',
+    none: undefined,
+  };
+  const defaultValue = 'primary';
+  const groupId = 'Other';
+  const color = select<ButtonColorsType>('Colors', buttonColors, defaultValue, groupId);
+
+  const buttonVariants = {
+    flat: 'flat',
+    raised: 'raised',
+    stroked: 'stroked',
+  };
+  const buttonVariant = select<'flat' | 'raised' | 'stroked'>('Variants', buttonVariants, 'flat', groupId);
+
+  const buttonSizes = {
+    sm: 'sm',
+    lg: 'lg',
+  };
+  const buttonSize = select<ButtonSizeType>('Sizes', buttonSizes, 'sm', groupId);
+
+  return (
+    <Button
+      color={color}
+      flat={buttonVariant === 'flat'}
+      raised={buttonVariant === 'raised'}
+      stroked={buttonVariant === 'stroked'}
+      size={buttonSize}
+      pill={boolean('Pill', false)}
+      disabled={boolean('Disabled', false)}
+      onClick={action('clicked')}
+    >
+      {text('Label', 'Submit')}
+    </Button>
+  );
 };
 
 const buttonBasicTypes: { label: string; color?: ButtonColorsType; disabled?: boolean }[] = [
@@ -29,13 +73,9 @@ const buttonBasicTypes: { label: string; color?: ButtonColorsType; disabled?: bo
 export const basic = () =>
   buttonBasicTypes.map((buttonType, index) => (
     <React.Fragment key={index}>
-      <Button
-        key={index}
-        color={buttonType?.color}
-        disabled={buttonType?.disabled}
-        label={buttonType?.label}
-        onClick={action('clicked')}
-      />
+      <Button key={index} color={buttonType?.color} disabled={buttonType?.disabled} onClick={action('clicked')}>
+        {buttonType?.label}
+      </Button>
       {index !== buttonBasicTypes.length - 1 ? <br /> : ''}
     </React.Fragment>
   ));
@@ -70,11 +110,12 @@ export const raised = () =>
         key={index}
         color={buttonType?.color}
         disabled={buttonType?.disabled}
-        label={buttonType.label}
         onClick={action('clicked')}
         pill={buttonType?.pill}
         raised={buttonType?.raised}
-      />
+      >
+        {buttonType.label}
+      </Button>
       {index !== buttonRaisedTypes.length - 1 ? <br /> : ''}
     </React.Fragment>
   ));
@@ -109,11 +150,12 @@ export const flat = () =>
         key={index}
         color={buttonType?.color}
         disabled={buttonType?.disabled}
-        label={buttonType.label}
         onClick={action('clicked')}
         flat={buttonType?.flat}
         pill={buttonType?.pill}
-      />
+      >
+        {buttonType?.label}
+      </Button>
       {index !== buttonFlatTypes.length - 1 ? <br /> : ''}
     </React.Fragment>
   ));
@@ -148,11 +190,12 @@ export const stroked = () =>
         key={index}
         color={buttonType?.color}
         disabled={buttonType?.disabled}
-        label={buttonType.label}
         onClick={action('clicked')}
         stroked={buttonType?.stroked}
         pill={buttonType?.pill}
-      />
+      >
+        {buttonType.label}
+      </Button>
       {index !== buttonStrokedTypes.length - 1 ? <br /> : ''}
     </React.Fragment>
   ));
@@ -193,74 +236,57 @@ export const sizes = () =>
         key={index}
         color={buttonType?.color}
         disabled={buttonType?.disabled}
-        label={buttonType.label}
         onClick={action('clicked')}
         raised={buttonType?.raised}
         stroked={buttonType?.stroked}
         flat={buttonType?.flat}
         size={buttonType?.size}
         pill={buttonType?.pill}
-      />
+      >
+        {buttonType?.label}
+      </Button>
       {index !== buttonSizeTypes.length - 1 ? <br /> : ''}
     </React.Fragment>
   ));
 
-// export const secondary = () => (
-//   <>
-//     <Button secondary label="label" onClick={action('clicked')} />
-//     <br />
-//     <Button secondary icon="search" label="label" onClick={action('clicked')} />
-//     <br />
-//     <Button secondary icon="search" label="label" onClick={action('clicked')} disabled />
-//   </>
-// );
-
-// export const outlineDefault = () => (
-//   <>
-//     <Button outline label="label" onClick={action('clicked')} />
-//     <br />
-//     <Button outline icon="search" label="label" onClick={action('clicked')} />
-//     <br />
-//     <Button outline icon="search" label="label" onClick={action('clicked')} disabled />
-//   </>
-// );
-
-// export const userButton = () => (
-//   <>
-//     <Button raised label="Sign in" onClick={action('clicked')} />
-//     <br />
-//     <Button raised label="Sign in" onClick={action('clicked')} disabled />
-//     <br />
-//     <Button userAvatar label="Mr. Anonymous" onClick={action('clicked')} />
-//     <br />
-//     <Button userAvatar label="Mr. Anonymous" onClick={action('clicked')} disabled />
-//   </>
-// );
-
-// export const defaultButton = () => (
-//   <div style={{ backgroundColor: '#000', padding: '.5rem 1.5rem' }}>
-//     <Button label="label" onClick={action('clicked')} />
-//   </div>
-// );
-
-// export const ButtonWithLabelWeights = () => (
-//   <>
-//     <Button label="label" labelWeight="black" onClick={action('clicked')} />
-//     <br />
-//     <Button label="label" labelWeight="extrabold" onClick={action('clicked')} />
-//     <br />
-//     <Button label="label" labelWeight="bold" onClick={action('clicked')} />
-//     <br />
-//     <Button label="label" labelWeight="semibold" onClick={action('clicked')} />
-//     <br />
-//     <Button label="label" labelWeight="medium" onClick={action('clicked')} />
-//     <br />
-//     <Button label="label" labelWeight="normal" onClick={action('clicked')} />
-//     <br />
-//     <Button label="label" labelWeight="light" onClick={action('clicked')} />
-//     <br />
-//     <Button label="label" labelWeight="thin" onClick={action('clicked')} />
-//     <br />
-//     <Button label="label" labelWeight="hairline" onClick={action('clicked')} />
-//   </>
-// );
+export const icons = () => (
+  <>
+    <Button raised color="primary">
+      <Icon color="white" icon="search" />
+    </Button>{' '}
+    <br />
+    <Button raised size="lg" color="primary">
+      <Icon color="white" icon="search" />
+    </Button>{' '}
+    <br />
+    <Button flat color="secondary">
+      <Icon color="white" icon="search" />
+      hello
+    </Button>{' '}
+    <br />
+    <Button stroked color="warn">
+      hello
+      <Icon icon="search" />
+    </Button>{' '}
+    <br />
+    <Button color="link">
+      <i className="testClass">i-tag</i>
+      <span>hello</span>
+    </Button>{' '}
+    <br />
+    <Button color="link">
+      <Avatar />
+      <span>hello</span>
+    </Button>{' '}
+    <br />
+    <Button color="link">
+      <span>hello</span>
+      <Avatar />
+    </Button>{' '}
+    <br />
+    <Button color="link">
+      <Avatar />
+    </Button>{' '}
+    <br />
+  </>
+);

@@ -34,21 +34,23 @@ const MainUserMenu: React.FC<MainUserMenuPropsInterface> = ({ isLoggedIn }: Main
         {isLoggedIn ? (
           <>
             <Menu after>
-              <Button raised color="primary" key="trigger" label="Mr. Anonymous" avatar="anonymous" />
+              <Button raised pill color="primary" key="trigger">
+                Mr. Anonymous
+              </Button>
               <MainUserMenuSubStyled key="submenu">
                 <List vertical>
                   <ListItem>
-                    <Button subMenu label="Account" />
+                    <Button>Account</Button>
                   </ListItem>
                   <ListItem>
-                    <Button subMenu label="Sign out" />
+                    <Button>Sign out</Button>
                   </ListItem>
                   <ListItemSeparator />
                   <ListItem>
-                    <Button subMenu labelWeight="normal" label="My Saved" />
+                    <Button>My Saved</Button>
                   </ListItem>
                   <ListItem>
-                    <Button subMenu labelWeight="light" label="My Saved" />
+                    <Button>My Profile</Button>
                   </ListItem>
                 </List>
               </MainUserMenuSubStyled>
@@ -56,7 +58,9 @@ const MainUserMenu: React.FC<MainUserMenuPropsInterface> = ({ isLoggedIn }: Main
           </>
         ) : (
           <MainUserMenuLoginLink to="/login">
-            <Button label="Sign in" raised />
+            <Button raised pill>
+              Sign in
+            </Button>
           </MainUserMenuLoginLink>
         )}
       </MainUserMenuStyled>

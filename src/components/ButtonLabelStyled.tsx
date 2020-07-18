@@ -6,10 +6,10 @@ const ButtonLabelStyled = styled.span<ButtonPropsInterface>`
   white-space: nowrap;
   text-decoration: none;
 
-  ${({ color, labelWeight, stroked, theme }) => {
+  ${({ color, stroked, theme }) => {
     const fontSize = theme.fontSizes.sm;
     const lineHeight = theme.lineHeight[5];
-    let fontWeight = labelWeight ? theme.fontWeight[labelWeight] : 'inherit';
+    let fontWeight = 'inherit';
     const textColor = 'inherit';
 
     if (color === 'primary' || color === 'secondary' || color === 'warn') {
@@ -17,7 +17,6 @@ const ButtonLabelStyled = styled.span<ButtonPropsInterface>`
     }
 
     if (stroked) {
-      // textColor = theme.colors['black-dark'];
       fontWeight = theme.fontWeight.semibold;
     }
 
